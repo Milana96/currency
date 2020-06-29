@@ -10,7 +10,7 @@
         >
         </List>
         <router-link class="add-currency" :to="{ path: 'item' }">
-          <span> </span>
+          <span><font-awesome-icon icon="plus-circle" /></span>
           Add currency</router-link
         >
       </div>
@@ -52,6 +52,8 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     height: 100%;
+    text-align: left;
+    color: grey;
     &-nav {
       display: flex;
       flex: 0 0 20%;
@@ -64,7 +66,6 @@ export default {
         padding: 0 3px 3px;
         color: #f26522;
         border-bottom: 1px solid #f26522;
-        text-align: left;
       }
     }
     .add-currency {
@@ -73,7 +74,6 @@ export default {
       color: #f26522;
       text-transform: uppercase;
       text-decoration: none;
-      text-align: left;
     }
   }
 }

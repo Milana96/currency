@@ -7,23 +7,23 @@ export default new Vuex.Store({
   state: {
     currencies: [
       {
-        currencyCode: 'CHF',
-        currencySymbol: 'Fr',
+        code: 'CHF',
+        symbol: 'Fr',
         id: Math.random()
       },
       {
-        currencyCode: 'EUR',
-        currencySymbol: '€',
+        code: 'EUR',
+        symbol: '€',
         id: Math.random()
       },
       {
-        currencyCode: 'GBP',
-        currencySymbol: '£',
+        code: 'GBP',
+        symbol: '£',
         id: Math.random()
       },
       {
-        currencyCode: 'USD',
-        currencySymbol: '$',
+        code: 'USD',
+        symbol: '$',
         id: Math.random()
       }
     ]
