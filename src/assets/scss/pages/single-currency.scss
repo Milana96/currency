@@ -19,6 +19,12 @@
     justify-content: space-between;
     padding: 11px 0;
     border-bottom: 1px solid $light_grey;
+    .show-error {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     input {
       height: 25px;
     }

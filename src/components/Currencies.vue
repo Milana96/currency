@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Item from "../components/currencies/Item.vue";
+import Item from "../components/currencies/Item";
 export default {
   name: "Currencies",
   components: {

@@ -4,25 +4,48 @@
       <p class="header-orange">Add currency</p>
       <div class="single-currency-container-item">
         <label for="">Currency code</label>
-        <Input v-model="currency.code"/>
+        <div class="show-err">
+          <Input
+            name="code"
+            v-model="currency.code"
+            v-validate="'required|unique'"
+            :class="{ input: true, 'is-danger': errors.has('code') }"
+          />
+          <i v-show="errors.has('code')" class="fa fa-warning"></i>
+          <span v-show="errors.has('code')" class="help is-danger">{{
+            errors.first("code")
+          }}</span>
+        </div>
       </div>
       <div class="single-currency-container-item">
         <label for="">Currency Symbol</label>
-        <Input v-model="currency.symbol"/>
+        <div class="show-error">
+          <Input
+            name="symbol"
+            v-model="currency.symbol"
+            v-validate="'required|unique'"
+            :class="{ input: true, 'is-danger': errors.has('symbol') }"
+          />
+          <i v-show="errors.has('symbol')" class="fa fa-warning"></i>
+          <span v-show="errors.has('symbol')" class="help is-danger">{{
+            errors.first("symbol")
+          }}</span>
+        </div>
       </div>
       <div class="submit-currency">
-        <Button type="submit">Submit</Button>
+        <Button :disabled="errors.any()" type="submit">Submit</Button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
-import Input from '../UI/Input.vue'
-import Button from '../UI/Button.vue';
+import { Validator } from "vee-validate";
+import Input from "../UI/Input.vue";
+import Button from "../UI/Button.vue";
 export default {
   components: {
-    Input, 
+    Input,
     Button
   },
   name: "Add",
@@ -37,11 +60,40 @@ export default {
   },
   methods: {
     onSubmit(event) {
-      this.$store.dispatch('addCurrency', this.currency)
-      this.$router.push('/');
+      this.$store.dispatch("addCurrency", this.currency);
+      this.$nextTick(() => {
+        this.$validator.reset();
+      });
+      // this.$router.push("/");
     }
+  },
+  mounted() {
+    const isUnique = value =>
+      new Promise(resolve => {
+        setTimeout(() => {
+          const currencies = this.$store.state.currencies;
+
+          for (var i = 0; i < currencies.length; i++) {
+            console.log(currencies[i]);
+            if (currencies[i].code.indexOf(value) === -1) {
+              return resolve({
+                valid: false
+              });
+            }
+            return resolve({
+              valid: false,
+              data: {
+                message: `${value} already exist.`
+              }
+            });
+          }
+        }, 200);
+      });
+
+    Validator.extend("unique", {
+      validate: isUnique,
+      getMessage: (field, params, data) => data.message
+    });
   }
 };
 </script>
-
-
