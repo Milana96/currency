@@ -4,21 +4,27 @@
       <p class="header-orange">Edit currency</p>
       <div class="single-currency-container-item">
         <label for="">Currency code</label>
-        <input v-model="currentCurrency.code" type="text" name="" id="" />
+        <Input v-model="currentCurrency.code"/>
       </div>
       <div class="single-currency-container-item">
         <label for="">Currency Symbol</label>
-        <input v-model="currentCurrency.symbol" type="text" name="" id="" />
+        <Input v-model="currentCurrency.symbol"/>
       </div>
       <div class="submit-currency">
-        <button type="submit" class="btn">Submit</button>
+        <Button type="submit">Submit</Button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
+import Input from '../UI/Input.vue'
+import Button from '../UI/Button.vue'
 export default {
+    components: {
+        Input,
+        Button
+    },
   name: "Edit",
   created() {
       this.fetchSingleCurrency()
