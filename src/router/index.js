@@ -24,7 +24,7 @@ const routes = [
     component: add
   },
   {
-    path: '/currencies/edit',
+    path: '/currencies/:id',
     name: 'Edit',
     component: edit
   },

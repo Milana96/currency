@@ -1,3 +1,11 @@
+.link {
+  text-decoration: none;
+  color: white;
+    &:hover, &:visited, &:active {
+      text-decoration: none;
+      color: inherit;
+    }
+}
 .white {
   color: $white;
   text-decoration: none;

@@ -1,7 +1,7 @@
 <template>
   <div class="currencies-container">
     <div class="sidenav-container">
-      <div class="sidenav-container-nav" v-if="showCurrencies">
+      <div class="sidenav-container-nav">
         <p class="sidenav-container-nav-header header-orange">Currency list</p>
 
         <Item
@@ -9,8 +9,9 @@
           :key="currency.code"
           :currency="currency"
         >
+        
         </Item>
-        <router-link class="add-currency orange" :to="{ path: '/currencies/add' }">
+        <router-link class="link add-currency orange" :to="{ path: '/currencies/add' }">
           <span><font-awesome-icon icon="plus-circle"/></span>
           Add currency</router-link
         >
@@ -29,13 +30,24 @@ export default {
   },
   data() {
     return {
-      showCurrencies: true
+      // currencies: []
     };
+  },
+  mounted() {
+    // this.$store.dispatch('fetchCurrencies');
+    // if(localStorage.getItem('currencies')) {
+    //   this.currencies = JSON.parse(localStorage.getItem('currencies'));
+    //   console.log(this.currencies);
+      
+    // }
+    // console.log(this.$store.state.currencies);
+    
   },
   computed: {
     currencies() {
       return this.$store.state.currencies;
     }
+    
   }
 };
 </script>

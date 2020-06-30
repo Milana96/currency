@@ -15,7 +15,7 @@
       display: flex;
       flex: 0 0 20%;
       flex-direction: column;
-      background-color: $light_grey;
+      background-color: rgba(240, 238, 238, 0.555);
       padding: 25px 30px;
 
       &-header {
@@ -24,8 +24,9 @@
       }
       .currency-item {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        height: 54px;
+        padding: 11px 0;
           .btn-remove {
             border: none;
             color: $dark_grey;
