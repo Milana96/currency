@@ -1,4 +1,4 @@
-.container {
+.currencies-container {
   width: 100%;
   min-width: 1440px;
   height: 100vh;
@@ -21,6 +21,15 @@
       &-header {
         margin: 0;
         padding: 0 3px 3px;
+      }
+      .currency-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+          .btn-remove {
+            border: none;
+            color: $dark_grey;
+          }
       }
     }
     .add-currency {

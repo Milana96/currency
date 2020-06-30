@@ -3,7 +3,7 @@
     <router-link class="grey" :to="{path: `/currencies/${currency.id}/edit`}">
       <p>{{currency.code}}</p>
     </router-link>
-    <button @click="removeCurrency(currency)">Delete</button>
+    <button class="btn-remove" @click="removeCurrency(currency)">Delete</button>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="currencies-container">
     <div class="sidenav-container">
       <div class="sidenav-container-nav" v-if="showCurrencies">
         <p class="sidenav-container-nav-header header-orange">Currency list</p>

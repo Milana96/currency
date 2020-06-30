@@ -1,6 +1,6 @@
 <template>
   <div class="single-currency-container">
-    <form action="" v-on:submit.prevent="onSubmit">
+    <form action="" v-on:submit.prevent="onSubmit" ref="addCurrency">
       <p class="header-orange">Add currency</p>
       <div class="single-currency-container-item">
         <label for="">Currency code</label>
@@ -30,9 +30,9 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
+    onSubmit(event) {
       this.$store.dispatch('addCurrency', this.currency)
-      console.log(this.$store.state.currencies);
+      this.$router.push('/');
     }
   }
 };
