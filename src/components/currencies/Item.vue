@@ -3,6 +3,7 @@
     <router-link class="grey" :to="{path: `/currencies/${currency.id}/edit`}">
       <p>{{currency.code}}</p>
     </router-link>
+    <button @click="removeCurrency(currency)">Delete</button>
   </div>
 </template>
 
@@ -13,11 +14,10 @@ export default {
       type: Object
     }
   },
-  created() {
-    console.log(this.currency);
-    
+  methods: {
+    removeCurrency(currency) {
+      this.$store.dispatch('removeCurrency', currency.id)
+    }
   }
 };
 </script>
-<style lang="scss">
-</style>

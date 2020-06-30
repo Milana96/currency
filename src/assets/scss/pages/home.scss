@@ -1,0 +1,19 @@
+a {
+  color: $white;
+  text-decoration: none;
+}
+.grey {
+  color: $dark_grey;
+}
+.orange {
+  color: $primary_theme_color;
+}
+.header-orange {
+  font-weight: normal;
+  color: $primary_theme_color;
+  border-bottom: 1px solid $primary_theme_color;
+}
+.header-grey {
+  color: $dark_grey;
+  border-bottom: 1px solid $light_grey;
+}

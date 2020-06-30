@@ -5,28 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    currencies: [
-      {
-        code: 'CHF',
-        symbol: 'Fr',
-        id: Math.random()
-      },
-      {
-        code: 'EUR',
-        symbol: '€',
-        id: Math.random()
-      },
-      {
-        code: 'GBP',
-        symbol: '£',
-        id: Math.random()
-      },
-      {
-        code: 'USD',
-        symbol: '$',
-        id: Math.random()
-      }
-    ]
+    currencies: [],
+    // showCurrencies
   },
   mutations: {
     ADD_CURRENCY(state, payload) {

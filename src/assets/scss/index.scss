@@ -1,5 +1,4 @@
-body {
-    margin: 0;
-    padding: 0;
-    color: red;
-}
+@import "./utilities/index.scss";
+@import "./normalize.scss";
+@import "./pages/index.scss";
+@import "./general/index.scss";
