@@ -43,14 +43,14 @@ export default new Vuex.Store({
     } 
   },
   actions: {
-    addCurrency({state, commit}, payload) {
-      state.commit("ADD_CURRENCY", payload);
+    addCurrency({commit}, payload) {
+      commit("ADD_CURRENCY", payload);
     },
-    editCurrency({state, commit}, payload) {
-      state.commit("EDIT_CURRENCY", payload);
+    editCurrency({commit}, payload) {
+      commit("EDIT_CURRENCY", payload);
     },
-    removeCurrency({state, commit}, payload) {
-      state.commit("REMOVE_CURRENCY", payload)
+    removeCurrency({commit}, payload) {
+      commit("REMOVE_CURRENCY", payload)
     } 
   },
   getters: {

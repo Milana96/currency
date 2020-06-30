@@ -1,15 +1,23 @@
 <template>
-    <div>
-        <h3>Add currency</h3>
-        <label for="">Currency code</label>
-        <input type="text" name="" id="">
-        <label for="">Currency Symbol</label>
-        <input type="text" name="" id="">
-    </div>
+  <div class="currency-item header-grey">
+    <router-link class="grey" :to="{path: `/currencies/${currency.id}/edit`}">
+      <p>{{currency.code}}</p>
+    </router-link>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Item'
-}
+  props: {
+    currency: {
+      type: Object
+    }
+  },
+  created() {
+    console.log(this.currency);
+    
+  }
+};
 </script>
+<style lang="scss">
+</style>

@@ -4,9 +4,9 @@
       <img src="../assets/images/logo.png" alt="menu-logo" />
     </div>
     <div class="header-container-nav">
-      <p>
+      <router-link :to="{path: '/'}">
         <span><font-awesome-icon icon="euro-sign"/></span> Currencies
-      </p>
+      </router-link>
     </div>
   </div>
 </template>
@@ -34,6 +34,7 @@
     display: flex;
     flex: 0 0 73%;
     justify-self: start;
+    align-items: center;
   }
 }
 </style>

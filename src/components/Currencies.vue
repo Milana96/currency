@@ -2,15 +2,16 @@
   <div class="container">
     <div class="sidenav-container">
       <div class="sidenav-container-nav" v-if="showCurrencies">
-        <p class="sidenav-container-nav-header">Currency list</p>
-        <List
+        <p class="sidenav-container-nav-header header-orange">Currency list</p>
+
+        <Item
           v-for="currency in currencies"
           :key="currency.code"
           :currency="currency"
         >
-        </List>
-        <router-link class="add-currency" :to="{ path: 'item' }">
-          <span><font-awesome-icon icon="plus-circle" /></span>
+        </Item>
+        <router-link class="add-currency orange" :to="{ path: '/currencies/add' }">
+          <span><font-awesome-icon icon="plus-circle"/></span>
           Add currency</router-link
         >
       </div>
@@ -20,11 +21,11 @@
 </template>
 
 <script>
-import List from "../components/currencies/List.vue";
+import Item from "../components/currencies/Item.vue";
 export default {
   name: "Currencies",
   components: {
-    List
+    Item
   },
   data() {
     return {
@@ -64,8 +65,6 @@ export default {
       &-header {
         margin: 0;
         padding: 0 3px 3px;
-        color: #f26522;
-        border-bottom: 1px solid #f26522;
       }
     }
     .add-currency {
