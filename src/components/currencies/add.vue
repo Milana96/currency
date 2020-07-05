@@ -8,7 +8,7 @@
           <Input
             name="code"
             v-model="currency.code"
-            v-validate="'required|unique'"
+            v-validate="'required|unique|length:3'"
             :class="{ input: true, 'is-danger': errors.has('code') }"
           />
           <i v-show="errors.has('code')" class="fa fa-warning"></i>
@@ -23,7 +23,7 @@
           <Input
             name="symbol"
             v-model="currency.symbol"
-            v-validate="'required|unique'"
+            v-validate="'required'"
             :class="{ input: true, 'is-danger': errors.has('symbol') }"
           />
           <i v-show="errors.has('symbol')" class="fa fa-warning"></i>
@@ -63,8 +63,12 @@ export default {
       this.$store.dispatch("addCurrency", this.currency);
       this.$nextTick(() => {
         this.$validator.reset();
+        this.errors.clear();
+        this.currency = {
+          code: '',
+          symbol: ''
+        }
       });
-      // this.$router.push("/");
     }
   },
   mounted() {
@@ -74,10 +78,9 @@ export default {
           const currencies = this.$store.state.currencies;
 
           for (var i = 0; i < currencies.length; i++) {
-            console.log(currencies[i]);
             if (currencies[i].code.indexOf(value) === -1) {
               return resolve({
-                valid: false
+                valid: true
               });
             }
             return resolve({
