@@ -54,14 +54,23 @@ export default {
   },
   data() {
     return {
-      currentCurrency: {}
+      currentCurrency: {},
+      // currentID: null
     };
+  },
+  watch: {
+    $route(to, from) {
+      this.fetchSingleCurrency()
+      // react to route changes...
+    }
   },
   methods: {
     fetchSingleCurrency() {
       this.currentCurrency = this.$store.state.currencies.find(
         e => e.id == this.$route.params.id
       );
+      console.log(this.currentCurrency);
+      
     },
     onSubmit(event) {
       this.$store.dispatch("editCurrency", this.currentCurrency);

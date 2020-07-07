@@ -23,6 +23,7 @@ export default new Vuex.Store({
       localStorage.setItem('currencies', parsed);
     },
     ADD_CURRENCY(state, payload) {
+      payload.id = Math.random();
       state.currencies.push(payload);
     },
     EDIT_CURRENCY(state, payload) {

@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       currency: {
-        id: Math.random(),
+        id: null,
         code: "",
         symbol: ""
       }

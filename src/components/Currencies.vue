@@ -3,6 +3,7 @@
     <div class="sidenav-container">
       <div class="sidenav-container-nav">
         <p class="sidenav-container-nav-header header-orange">Currency list</p>
+        <label>Search</label>
         <Input v-model="search" />
         <Item
           v-for="currency in filteredCurrencies"
