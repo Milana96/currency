@@ -1,6 +1,11 @@
 <template>
   <div class="single-currency-container">
-    <form action="" v-on:submit.prevent="onSubmit" ref="addCurrency">
+    <form
+      action=""
+      v-on:submit.prevent="onSubmit"
+      ref="addCurrency"
+      novalidate="true"
+    >
       <p class="header-orange">Edit currency</p>
       <div class="single-currency-container-item">
         <label for="">Currency code</label>
@@ -33,7 +38,7 @@
         </div>
       </div>
       <div class="submit-currency">
-        <Button :disabled="errors.any()" type="submit">Submit</Button>
+        <Button :disabled="errors.any()" type="submit">Save</Button>
       </div>
     </form>
   </div>
@@ -59,23 +64,24 @@ export default {
   },
   watch: {
     $route(to, from) {
-      this.fetchSingleCurrency()
+      this.fetchSingleCurrency();
     }
   },
   methods: {
     fetchSingleCurrency() {
+      this.$store.commit("GET_CURRENCIES");
       this.currentCurrency = this.$store.state.currencies.find(
         e => e.id == this.$route.params.id
       );
-      console.log(this.currentCurrency);
-      
     },
     onSubmit(event) {
       this.$store.dispatch("editCurrency", this.currentCurrency);
+
       this.$nextTick(() => {
         this.$validator.reset();
         this.errors.clear();
         this.currentCurrency = {
+          id: null,
           code: "",
           symbol: ""
         };

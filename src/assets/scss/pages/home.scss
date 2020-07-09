@@ -1,13 +1,15 @@
 .link {
   text-decoration: none;
   color: white;
-    &:hover, &:visited, &:active {
+    &:hover {
       text-decoration: none;
-      color: inherit;
     }
 }
+.router-link-active {
+  color: $primary_theme_color !important;
+}
 .white {
-  color: $white;
+  color: $white !important;
   text-decoration: none;
 }
 .grey {

@@ -52,8 +52,6 @@ export default {
           );
         });
       }
-      console.log(this.$store.state.currencies);
-       
       return this.$store.state.currencies;
     }
   },
