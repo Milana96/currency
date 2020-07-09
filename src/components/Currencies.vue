@@ -35,13 +35,14 @@ export default {
   },
   data() {
     return {
-      search: '',
-      currencies: []
+      search: "",
+      currencies: [],
+      
     };
   },
   computed: {
     filteredCurrencies() {
-      if (this.search.length != '') {
+      if (this.search && this.search != "") {
         const searchText = this.search.toLowerCase();
         return this.$store.state.currencies.filter(el => {
           return (
@@ -50,8 +51,10 @@ export default {
             el.id == parseInt(searchText)
           );
         });
-      } else
-        return this.$store.state.currencies;
+      }
+      console.log(this.$store.state.currencies);
+       
+      return this.$store.state.currencies;
     }
   },
   mounted() {

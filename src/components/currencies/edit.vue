@@ -87,7 +87,6 @@ export default {
       new Promise(resolve => {
         setTimeout(() => {
           const currencies = this.$store.state.currencies;
-
           for (var i = 0; i < currencies.length; i++) {
             if (currencies[i].code.indexOf(value) === -1) {
               return resolve({

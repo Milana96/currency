@@ -28,10 +28,8 @@ export default new Vuex.Store({
       })
     },
     REMOVE_CURRENCY(state, payload) {
-      let leftCurrency = state.currencies.find( e => e.id != payload);
-      state.currencies = leftCurrency;
-      console.log(state.currencies);
-      
+      let removeCurrency = state.currencies.find( e => e.id == payload);
+      state.currencies.splice(removeCurrency, 1);
     } 
   },
   actions: {
@@ -41,9 +39,11 @@ export default new Vuex.Store({
     },
     editCurrency({commit}, payload) {
       commit("EDIT_CURRENCY", payload);
+      commit('SET_CURRENCIES')
     },
     removeCurrency({commit}, payload) {
       commit("REMOVE_CURRENCY", payload)
+      commit('SET_CURRENCIES')
     }
   },
   getters: {
