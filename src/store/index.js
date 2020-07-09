@@ -8,16 +8,14 @@ export default new Vuex.Store({
     currencies: []
   },
   mutations: {
-    SET_CURRENCIES(state, payload) {
-      const parsed = JSON.stringify(payload)
+    SET_CURRENCIES(state) {
+      const parsed = JSON.stringify(state.currencies);
       localStorage.setItem('currencies', parsed);
     },
     GET_CURRENCIES(state) {
       if (localStorage.getItem('currencies') != null) {
-        state.currencies.push(JSON.parse(localStorage.getItem('currencies')));
+        state.currencies = JSON.parse(localStorage.getItem('currencies'));
       }
-      console.log(state.currencies);
-      
     },
     ADD_CURRENCY(state, payload) {
       payload.id = Math.floor(Math.random()*100);
@@ -39,17 +37,14 @@ export default new Vuex.Store({
   actions: {
     addCurrency({commit}, payload) {
       commit("ADD_CURRENCY", payload);
-      commit('SET_CURRENCIES', payload)
+      commit('SET_CURRENCIES')
     },
     editCurrency({commit}, payload) {
       commit("EDIT_CURRENCY", payload);
     },
     removeCurrency({commit}, payload) {
       commit("REMOVE_CURRENCY", payload)
-    },
-    // fetchCurrencies({state, commit}) {
-      
-    // }
+    }
   },
   getters: {
     currencies(state) {

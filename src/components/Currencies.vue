@@ -41,7 +41,6 @@ export default {
   },
   computed: {
     filteredCurrencies() {
-
       if (this.search.length != '') {
         const searchText = this.search.toLowerCase();
         return this.$store.state.currencies.filter(el => {
@@ -57,10 +56,6 @@ export default {
   },
   mounted() {
     this.$store.commit('GET_CURRENCIES');
-    // if(localStorage.getItem('currencies')) {
-    //   this.currencies = JSON.parse(localStorage.getItem('currencies'));
-    //   console.log(this.currencies);
-    // }
   }
 };
 </script>
