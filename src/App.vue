@@ -5,7 +5,6 @@
       </b-row>
       <b-row>
         <b-col sm="3"><Currencies /></b-col>
-        <!-- <b-col sm="9"><router-view /></b-col> -->
       </b-row>
   </div>
   

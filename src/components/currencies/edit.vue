@@ -54,14 +54,12 @@ export default {
   },
   data() {
     return {
-      currentCurrency: {},
-      // currentID: null
+      currentCurrency: {}
     };
   },
   watch: {
     $route(to, from) {
       this.fetchSingleCurrency()
-      // react to route changes...
     }
   },
   methods: {

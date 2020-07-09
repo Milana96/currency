@@ -35,31 +35,32 @@ export default {
   },
   data() {
     return {
-      // currencies: []
-      search: ""
+      search: '',
+      currencies: []
     };
   },
   computed: {
     filteredCurrencies() {
-      const searchText = this.search.toLowerCase();
-      return this.$store.state.currencies.filter(el => {
-        console.log(el.id);
-        
-        return (
-          el.code.toLowerCase().includes(searchText) ||
-          el.symbol.toLowerCase().includes(searchText) ||
-          el.id == searchText
-        );
-      });
+
+      if (this.search.length != '') {
+        const searchText = this.search.toLowerCase();
+        return this.$store.state.currencies.filter(el => {
+          return (
+            el.code.toLowerCase().includes(searchText) ||
+            el.symbol.toLowerCase().includes(searchText) ||
+            el.id == parseInt(searchText)
+          );
+        });
+      } else
+        return this.$store.state.currencies;
     }
   },
   mounted() {
-    // this.$store.dispatch('fetchCurrencies');
+    this.$store.commit('GET_CURRENCIES');
     // if(localStorage.getItem('currencies')) {
     //   this.currencies = JSON.parse(localStorage.getItem('currencies'));
     //   console.log(this.currencies);
     // }
-    // console.log(this.$store.state.currencies);
   }
 };
 </script>

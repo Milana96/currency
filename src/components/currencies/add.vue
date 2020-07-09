@@ -65,6 +65,7 @@ export default {
         this.$validator.reset();
         this.errors.clear();
         this.currency = {
+          id: null,
           code: '',
           symbol: ''
         }
