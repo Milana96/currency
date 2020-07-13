@@ -1,6 +1,6 @@
 <template>
   <div class="currency-item header-grey">
-    <router-link class="link grey" :to="{path: `/currencies/${currency.id}`, params: `${currency.id}`}">
+    <router-link class="link grey" :to="{path: `/currencies/${currency.id}`}">
       <p>{{currency.code}}</p>
     </router-link>
     <button class="btn-remove" @click="removeCurrency(currency)">Delete</button>

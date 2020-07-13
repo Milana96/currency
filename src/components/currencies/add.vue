@@ -66,18 +66,21 @@ export default {
         this.errors.clear();
         this.currency = {
           id: null,
-          code: '',
-          symbol: ''
-        }
+          code: "",
+          symbol: ""
+        };
       });
     }
   },
   mounted() {
     const isUnique = value =>
       new Promise(resolve => {
-        setTimeout(() => {
-          const currencies = this.$store.state.currencies;
-
+        const currencies = this.$store.state.currencies;
+        if (currencies.length == 0) {
+          return resolve({
+            valid: true
+          });
+        } else {
           for (var i = 0; i < currencies.length; i++) {
             if (currencies[i].code.indexOf(value) === -1) {
               return resolve({
@@ -91,7 +94,7 @@ export default {
               }
             });
           }
-        }, 200);
+        }
       });
 
     Validator.extend("unique", {

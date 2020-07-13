@@ -35,9 +35,7 @@ export default {
   },
   data() {
     return {
-      search: "",
-      currencies: [],
-      
+      search: ""
     };
   },
   computed: {

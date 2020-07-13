@@ -13,7 +13,7 @@
           <Input
             name="code"
             v-model="currentCurrency.code"
-            v-validate="'required|unique|length:3'"
+            v-validate="'required|length:3'"
             :class="{ input: true, 'is-danger': errors.has('code') }"
           />
           <i v-show="errors.has('code')" class="fa fa-warning"></i>
@@ -76,7 +76,6 @@ export default {
     },
     onSubmit(event) {
       this.$store.dispatch("editCurrency", this.currentCurrency);
-
       this.$nextTick(() => {
         this.$validator.reset();
         this.errors.clear();
@@ -87,32 +86,6 @@ export default {
         };
       });
     }
-  },
-  mounted() {
-    const isUnique = value =>
-      new Promise(resolve => {
-        setTimeout(() => {
-          const currencies = this.$store.state.currencies;
-          for (var i = 0; i < currencies.length; i++) {
-            if (currencies[i].code.indexOf(value) === -1) {
-              return resolve({
-                valid: true
-              });
-            }
-            return resolve({
-              valid: false,
-              data: {
-                message: `${value} already exist.`
-              }
-            });
-          }
-        }, 200);
-      });
-
-    Validator.extend("unique", {
-      validate: isUnique,
-      getMessage: (field, params, data) => data.message
-    });
   }
 };
 </script>
